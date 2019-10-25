@@ -1,0 +1,14 @@
+// MIXINS
+@import "./mixins/mixins";
+
+// COMMON
+@import "./common/reset";
+@import "./common/colors";
+@import "./common/fonts";
+@import "./common/generals";
+
+// COMPONENTS
+@import "./components/header";
+@import "./components/footer";
+
+// VIEWS
