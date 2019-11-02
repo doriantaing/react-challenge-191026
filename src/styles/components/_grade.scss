@@ -1,0 +1,58 @@
+.grade {
+  color: $white;
+  font-size: 12px;
+  font-family: $font-roboto-bold;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: .5rem;
+  &.A-color {
+    background: rgba($green, .3);
+    .grade-content {
+      width: auto;
+      background: $green;
+    }
+  }
+  &.B-color {
+    background: rgba($green, .3);
+    .grade-content {
+      width: 85%;
+      background: $green;
+    }
+  }
+  &.C-color {
+    background: rgba($lightGreen, .3);
+    .grade-content {
+      width: 75%;
+      background: $lightGreen;
+    }
+  }
+  &.D-color {
+    background: rgba($lighterGreen, .3);
+    .grade-content {
+      width: 65%;
+      background: $lighterGreen;
+    }
+  }
+  &.E-color {
+    background: rgba($greenYellow, .3);
+    .grade-content {
+      width: 55%;
+      background: $greenYellow;
+    }
+  }
+  &.F-color {
+    background: rgba($yellow, .3);
+    .grade-content {
+      width: 45%;
+      background: $yellow;
+    }
+  }
+  &-content {
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

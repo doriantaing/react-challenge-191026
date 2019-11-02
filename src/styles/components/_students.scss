@@ -1,0 +1,42 @@
+.students {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+  max-width: calc(100% - 16rem);
+  margin: 20px auto 0;
+  .student-card {
+    border: 1px solid rgba($black, .1);
+    border-radius: 5px;
+    background: $white;
+    padding: 26px 24px 24px;
+    &_top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    &_info {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    &_name {
+      font-family: $font-roboto-bold;
+      font-size: 18px;
+    }
+    &_email {
+      font-size: 14px;
+      color: rgba($black, .8);
+      text-decoration: none;
+      font-family: $font-roboto-medium;
+      margin-top: 4px;
+    }
+    &_edit {
+      cursor: pointer;
+    }
+    &_desc {
+      margin-top: 1rem;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+}
