@@ -2,8 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 32px;
-  max-width: calc(100% - 16rem);
-  margin: 20px auto 0;
   .student-card {
     border: 1px solid rgba($black, .1);
     border-radius: 5px;

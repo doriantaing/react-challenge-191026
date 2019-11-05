@@ -1,0 +1,26 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 0 2rem;
+  &-list {
+    display: flex;
+    align-items: center;
+    &_item {
+      background: $white;
+      color: $black;
+      border: 1px solid rgba($black, .1);
+      border-radius: 50px;
+      padding: .5rem 12px;
+      cursor: pointer;
+      &.active {
+        background: $green;
+        color: $white;
+        border-color: $green;
+      }
+      &:not(:last-child){
+        margin-right: .5rem;
+      }
+    }
+  }
+}

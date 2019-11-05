@@ -14,3 +14,27 @@ body {
   display: block;
   background: rgba($black, 0.1);
 }
+
+.container {
+  max-width: calc(100% - 16rem);
+  margin: 0 auto;
+}
+
+.add-students {
+  display: flex;
+  align-items: center;
+  border: 1px solid $green;
+  border-radius: 50px;
+  padding: .5rem 12px .5rem 15px;
+  background: $white;
+  cursor: pointer;
+  button{
+    background: none;
+    border: none;
+    font-family: $font-roboto-bold;
+    color: $green;
+    font-size: 1rem;
+    margin-left: .5rem;
+    outline: none;
+  }
+}

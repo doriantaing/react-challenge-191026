@@ -1,16 +1,18 @@
 import React from 'react';
 import Header from "./components/Header";
-import StudentCard from "./components/StudentCard";
+import Home from './views/Home/Home';
+import StoreProvider from "./context/StoreProvider";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Header/>
-      <section className="students">
-        <StudentCard/>
-        <StudentCard/>
-        <StudentCard/>
-      </section>
+      <StoreProvider>
+        <Home/>
+      </StoreProvider>
+      <footer className="footer">
+        <p className="footer-text">LIST DISCENTIUM © 2019 — Projet réalisé par Billal Ouaali, Théo Larue, Fabien Marques, Dorian Taing et Alexandre Martins.</p>
+      </footer>
     </div>
   );
 }
