@@ -31,7 +31,12 @@ class StoreProvider extends Component {
       isModalEdit: editMode,
       studentID
     }))
-
+    
+    if(editMode){
+      this.fetchStudent(studentID).then(() => {
+        console.log('FETCHED STUDENT');
+      });
+    }
     this.resetForm();
   };
 
@@ -40,8 +45,8 @@ class StoreProvider extends Component {
     const { addStudentInfo } = this.state;
 
     // Create new student
-    await Api.createStudent(addStudentInfo).then(() => {
-      this.getAllStudents()
+    await Api.createStudent(addStudentInfo).then(async() => {
+      await this.getAllStudents()
     });
   };
 
@@ -93,7 +98,7 @@ class StoreProvider extends Component {
   };
 
   deleteStudent = async(studentID) => {
-    await Api.deleteStudent(studentID).then(() => {
+    await Api.deleteStudent(studentID).then((e) => {
       this.getAllStudents()
     })
   };

@@ -7,12 +7,6 @@ const Modal = ({context, allSubjects, editMode}) => {
   const { studentID } = context.data;
   const title = editMode ? 'Éditer un élève' : 'Ajouter un élève';
 
-  useEffect(() => {
-    if( editMode ) {
-      context.fetchStudent(studentID);
-    }
-  }, [editMode, studentID, context]);
-
   return(
     <div className="modal">
       <div className="modal-container">
