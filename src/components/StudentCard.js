@@ -2,15 +2,15 @@ import React from 'react';
 import { ReactComponent as EditIcon } from '../assets/img/Edit.svg';
 import Grade from "./Grade";
 
-const StudentCard = ({info}) => {
+const StudentCard = ({info, openModal}) => {
   return(
     <article className="student-card">
       <div className="student-card_top">
         <div className="student-card_info">
           <h2 className="student-card_name">{info.first_name} <span className="text-uppercase">{info.last_name}</span></h2>
-          <a href="mailto:" className="student-card_email">{info.email}</a>
+          <a href={`mailto:${info.email}`} className="student-card_email">{info.email}</a>
         </div>
-        <EditIcon className="student-card_edit"/>
+        <EditIcon className="student-card_edit" onClick={() => openModal(true, info.student_id)}/>
       </div>
       <div className="student-card_desc">
         <p>{info.description}</p>

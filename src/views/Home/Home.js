@@ -1,21 +1,40 @@
 import React from 'react';
 import Filters from "../../components/Filters";
 import StudentCard from "../../components/StudentCard";
+import Modal from '../../components/Modal';
 import StoreContext from "../../context/StoreContext";
 
 const Home = () => {
   return(
     <StoreContext.Consumer>
       {(context) => {
-        const { allStudents } = context.data;
+        const { allStudents, allSubjects, isModalOpen, isModalEdit} = context.data;
+        if( !allStudents ){
+          return(
+            <div className="no-results">
+              <h2>No Students</h2>
+            </div>
+          )
+        }
         return(
           <div className="container">
-            <Filters/>
-            <section className="students">
+            <Filters openModal={context.updateModal}/>
+            <section className={`students ${isModalOpen ? 'modal-open' : ''}`}>
               { allStudents.map((item, id) => (
-                <StudentCard key={id} info={item}/>
+                <StudentCard
+                  key={id}
+                  info={item}
+                  openModal={context.updateModal}
+                />
               ))}
             </section>
+            { isModalOpen && (
+              <Modal
+                context={context}
+                allSubjects={allSubjects}
+                editMode={isModalEdit}
+              />
+            )}
           </div>
         )
       }}

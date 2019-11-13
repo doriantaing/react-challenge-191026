@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponent as AddIcon } from '../assets/img/Add.svg';
 
-const Filters = () => {
+const Filters = ({openModal}) => {
   return(
     <section className="filters">
       <ul className="filters-list">
@@ -24,7 +24,7 @@ const Filters = () => {
           Gestion de projet
         </li>
       </ul>
-      <div className="add-students">
+      <div className="add-students" onClick={() => openModal(false)}>
         <AddIcon/>
         <button>Ajouter un élève</button>
       </div>
