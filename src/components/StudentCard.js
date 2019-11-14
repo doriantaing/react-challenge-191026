@@ -15,14 +15,14 @@ const StudentCard = ({info, openModal}) => {
       <div className="student-card_desc">
         <p>{info.description}</p>
       </div>
-        <div className="grade-container">
+      <div className="grade-container">
         <div className="separator"/>
-      <Grade subject="Programmation côté client" rating={info.client_side_programming}/>
-      <Grade subject="Programmation côté serveur" rating={info.back_side_programming}/>
-      <Grade subject="Design UI" rating={info.ui_design}/>
-      <Grade subject="Design UX" rating={info.ux_design}/>
-      <Grade subject="Gestion de projet" rating={info.project_management}/>
-        </div>
+        <Grade subject="Programmation côté client" rating={info.client_side_programming}/>
+        <Grade subject="Programmation côté serveur" rating={info.back_side_programming}/>
+        <Grade subject="Design UI" rating={info.ui_design}/>
+        <Grade subject="Design UX" rating={info.ux_design}/>
+        <Grade subject="Gestion de projet" rating={info.project_management}/>
+      </div>
     </article>
   )
 };

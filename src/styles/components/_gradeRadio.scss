@@ -80,6 +80,17 @@
         }
       }
     }
+    &.color-mediumGreen {
+      input:checked~label {
+        color: $mediumGreen;
+        &::before {
+          border-color: $mediumGreen;
+        }
+        &::after {
+          background: $mediumGreen;
+        }
+      }
+    }
     &.color-lightGreen {
       input:checked~label {
         color: $lightGreen;

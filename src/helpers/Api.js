@@ -32,9 +32,21 @@ const deleteStudent = (id) => {
   })
 };
 
+
+const editStudent = (id, info) => {
+  return fetch(`/updateStudent/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify( info )
+  })
+};
+
 export default {
   getAllStudents,
   createStudent,
   getStudent,
-  deleteStudent
+  deleteStudent,
+  editStudent
 };

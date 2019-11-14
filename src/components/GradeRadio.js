@@ -1,8 +1,8 @@
 import React from 'react';
 
-const GradeRadio = ({subject, last, eventChange}) => {
+const GradeRadio = ({subject, last, eventChange, context, editMode}) => {
   let inputName;
-  const error = [
+  const allRadios = [
     {
       color: 'color-green',
       grade: 'A'
@@ -28,7 +28,6 @@ const GradeRadio = ({subject, last, eventChange}) => {
       grade: 'F'
     },
   ];
-
   switch(subject) {
     case 'Programmation côté client':
       inputName = 'client_side_programming';
@@ -50,16 +49,44 @@ const GradeRadio = ({subject, last, eventChange}) => {
       break;
   }
 
+  const { addStudentInfo } = context.data;
+  let subjectName = null;
+
+  if(editMode) {
+    Object.keys(addStudentInfo).forEach(item => {
+      if(item === inputName) {
+        subjectName = item
+      }
+    })
+  }
+
+
   return(
     <div className={`gradeRadio ${last ? 'last' : ''}`}>
       <h3 className="gradeRadio-title">{subject}</h3>
       <div className="gradeRadio-inputs">
-        { error.map((item, id) => (
-          <div className={`gradeRadio-input ${item.color}`} key={id}>
-            <input type="radio" name={inputName} required onChange={eventChange}/>
-            <label>{item.grade}</label>
-          </div>
-        ))}
+        { allRadios.map((item, id) => {
+          return(
+            <div className={`gradeRadio-input ${item.color}`} key={id}>
+              { editMode ? (
+                  <input type="radio"
+                         name={inputName}
+                         required
+                         onChange={eventChange}
+                         checked={item.grade === addStudentInfo[subjectName] && true }
+                  />
+                ) : (
+                  <input type="radio"
+                         name={inputName}
+                         required
+                         onChange={eventChange}
+                  />
+                )
+              }
+              <label>{item.grade}</label>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

@@ -59,14 +59,21 @@ class StoreProvider extends Component {
       })
   };
 
-  sendForm = async(e) => {
+  sendForm = async(e, editMode) => {
     e.preventDefault();
-    const { addStudentInfo } = this.state;
+    const { addStudentInfo, studentID } = this.state;
 
-    // Create new student
-    await Api.createStudent(addStudentInfo).then(async() => {
-      await this.getAllStudents()
-    });
+    if(editMode){
+      // Edit student
+      await Api.editStudent(studentID, addStudentInfo).then(async() => {
+        await this.getAllStudents()
+      })
+    } else {
+      // Create new student
+      await Api.createStudent(addStudentInfo).then(async() => {
+        await this.getAllStudents()
+      });
+    }
   };
 
   inputOnChange = (e) => {
@@ -105,18 +112,36 @@ class StoreProvider extends Component {
 
   fetchStudent = async(studentID) => {
     const data = await Api.getStudent(studentID);
+    const {
+      last_name,
+      first_name,
+      email,
+      description,
+      client_side_programming,
+      back_side_programming,
+      ui_design,
+      ux_design,
+      project_management
+    } = data;
 
     this.setState({
       addStudentInfo: {
-        last_name: data.last_name,
-        first_name: data.first_name,
-        email: data.email,
-        description: data.description
-      }
+        last_name,
+        first_name,
+        email,
+        description,
+        client_side_programming,
+        back_side_programming,
+        ui_design,
+        ux_design,
+        project_management
+      },
     })
   };
 
-  deleteStudent = async(studentID) => {
+  deleteStudent = async(e, studentID) => {
+    e.preventDefault();
+
     await Api.deleteStudent(studentID).then((e) => {
       this.getAllStudents()
     })
