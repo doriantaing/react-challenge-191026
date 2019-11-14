@@ -39,5 +39,7 @@
 
 - https://www.figma.com/proto/QnnQzkmx6WYLhVz1zgmqHs/List-discentium?node-id=1%3A2&viewport=227%2C370%2C0.21643273532390594&scaling=scale-down
 
+Homepage
 ![](/public/img/homepage.png)
+Modal view
 ![](/public/img/add-student.png)
