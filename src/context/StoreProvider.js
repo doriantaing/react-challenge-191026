@@ -4,7 +4,9 @@ import Api from "../helpers/Api";
 
 class StoreProvider extends Component {
   state = {
+      currentFilter : 'all',
     allStudents: [],
+      filteredStudents : [],
     allSubjects: ['Programmation côté client', 'Programmation côté serveur', 'Design UI', 'Design UX', 'Gestion de projet'],
     isModalOpen: false,
     isModalEdit: false,
@@ -19,9 +21,10 @@ class StoreProvider extends Component {
 
   async componentDidMount() {
     const rows = await Api.getAllStudents();
-
+    console.log(rows)
     this.setState({
-      allStudents: rows
+      allStudents: rows,
+        filteredStudents: rows,
     })
   }
 
@@ -31,13 +34,29 @@ class StoreProvider extends Component {
       isModalEdit: editMode,
       studentID
     }))
-    
+
+
     if(editMode){
       this.fetchStudent(studentID).then(() => {
         console.log('FETCHED STUDENT');
       });
     }
     this.resetForm();
+  };
+
+  filterStudents = (category) => {
+      if (category === 'all'){
+          this.setState(prevState => {
+
+              return { currentFilter: category, filteredStudents: prevState.allStudents}
+          });
+          return;
+      }
+    const students = this.state.allStudents.filter(student =>
+      student[category] === 'A' || student[category] === 'B');
+    this.setState(prevState => {
+          return { currentFilter: category, filteredStudents : students}
+      })
   };
 
   sendForm = async(e) => {
@@ -110,7 +129,8 @@ class StoreProvider extends Component {
       sendForm: this.sendForm,
       inputOnChange: this.inputOnChange,
       fetchStudent: this.fetchStudent,
-      deleteStudent: this.deleteStudent
+      deleteStudent: this.deleteStudent,
+        filterStudents : this.filterStudents,
     };
 
     return(

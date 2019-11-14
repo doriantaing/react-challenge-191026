@@ -8,19 +8,20 @@ const Home = () => {
   return(
     <StoreContext.Consumer>
       {(context) => {
-        const { allStudents, allSubjects, isModalOpen, isModalEdit} = context.data;
-        if( !allStudents ){
+        const { allSubjects, isModalOpen, isModalEdit, filteredStudents, currentFilter} = context.data;
+        if(   !filteredStudents ){
           return(
             <div className="no-results">
               <h2>No Students</h2>
             </div>
           )
         }
+        console.log(context)
         return(
           <div className="container">
-            <Filters openModal={context.updateModal}/>
+            <Filters currentFilter={currentFilter} filterStudents={context.filterStudents}  openModal={context.updateModal}/>
             <section className={`students ${isModalOpen ? 'modal-open' : ''}`}>
-              { allStudents.map((item, id) => (
+              { filteredStudents.map((item, id) => (
                 <StudentCard
                   key={id}
                   info={item}

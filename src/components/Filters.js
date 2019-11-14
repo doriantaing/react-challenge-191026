@@ -1,26 +1,26 @@
 import React from 'react';
 import { ReactComponent as AddIcon } from '../assets/img/Add.svg';
 
-const Filters = ({openModal}) => {
+const Filters = ({openModal, filterStudents, currentFilter}) => {
   return(
     <section className="filters">
       <ul className="filters-list">
-        <li className="filters-list_item active">
+        <li onClick={() => filterStudents('all')} className={`filters-list_item ${currentFilter === 'all'? 'active' : ''} `}>
           Tout
         </li>
-        <li className="filters-list_item">
+        <li onClick={() => filterStudents('client_side_programming')}  className={`filters-list_item ${currentFilter === 'client_side_programming'? 'active' : ''} `}>
           Programmation côté client
         </li>
-        <li className="filters-list_item">
+        <li onClick={() => filterStudents('back_side_programming')} className={`filters-list_item ${currentFilter === 'back_side_programming'? 'active' : ''} `}>
           Programmation côté serveur
         </li>
-        <li className="filters-list_item">
+        <li onClick={() => filterStudents('ui_design')} className={`filters-list_item ${currentFilter === 'ui_design'? 'active' : ''} `}>
           Design UI
         </li>
-        <li className="filters-list_item">
+        <li onClick={() => filterStudents('ux_design')} className={`filters-list_item ${currentFilter === 'ux_design'? 'active' : ''} `}>
           Design UX
         </li>
-        <li className="filters-list_item">
+        <li onClick={() => filterStudents('project_management')} className={`filters-list_item ${currentFilter === 'project_management'? 'active' : ''} `}>
           Gestion de projet
         </li>
       </ul>
@@ -30,6 +30,7 @@ const Filters = ({openModal}) => {
       </div>
     </section>
   )
+
 };
 
 export default Filters;
