@@ -38,8 +38,9 @@
 ## MAQUETTES & PROTOTYPE (FIGMA) :computer:
 
 - https://www.figma.com/proto/QnnQzkmx6WYLhVz1zgmqHs/List-discentium?node-id=1%3A2&viewport=227%2C370%2C0.21643273532390594&scaling=scale-down
-
-Homepage
+<br><br>
+<p align="center">Homepage</p>
 ![](/public/img/homepage.png)
-Modal view
+<br>
+<p align="center">Modal view</p>
 ![](/public/img/add-student.png)
