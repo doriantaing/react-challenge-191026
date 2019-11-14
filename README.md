@@ -41,7 +41,10 @@
 
 
 - Homepage
+
 ![](/public/img/homepage.png)
 
+
 - Modal view
+
 ![](/public/img/add-student.png)
