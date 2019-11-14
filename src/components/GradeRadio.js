@@ -8,7 +8,7 @@ const GradeRadio = ({subject, last, eventChange}) => {
       grade: 'A'
     },
     {
-      color: 'color-green',
+      color: 'color-mediumGreen',
       grade: 'B'
     },
     {

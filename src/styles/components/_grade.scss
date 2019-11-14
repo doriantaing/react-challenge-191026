@@ -5,6 +5,9 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-bottom: .5rem;
+  &:last-child {
+    margin-bottom: 0px;
+  }
   &.A-color {
     background: rgba($green, .3);
     .grade-content {
