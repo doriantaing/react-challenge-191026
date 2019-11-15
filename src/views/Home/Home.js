@@ -9,14 +9,13 @@ const Home = () => {
     <StoreContext.Consumer>
       {(context) => {
         const { allSubjects, isModalOpen, isModalEdit, filteredStudents, currentFilter} = context.data;
-        if(   !filteredStudents ){
+        if( !filteredStudents ){
           return(
             <div className="no-results">
               <h2>No Students</h2>
             </div>
           )
         }
-        console.log(context)
         return(
           <div className="container">
             <Filters currentFilter={currentFilter} filterStudents={context.filterStudents}  openModal={context.updateModal}/>

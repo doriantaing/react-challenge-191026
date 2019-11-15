@@ -4,9 +4,9 @@ import Api from "../helpers/Api";
 
 class StoreProvider extends Component {
   state = {
-      currentFilter : 'all',
+    currentFilter : 'all',
     allStudents: [],
-      filteredStudents : [],
+    filteredStudents : [],
     allSubjects: ['Programmation côté client', 'Programmation côté serveur', 'Design UI', 'Design UX', 'Gestion de projet'],
     isModalOpen: false,
     isModalEdit: false,
@@ -21,10 +21,10 @@ class StoreProvider extends Component {
 
   async componentDidMount() {
     const rows = await Api.getAllStudents();
-    console.log(rows)
+
     this.setState({
       allStudents: rows,
-        filteredStudents: rows,
+      filteredStudents: rows,
     })
   }
 
@@ -155,7 +155,7 @@ class StoreProvider extends Component {
       inputOnChange: this.inputOnChange,
       fetchStudent: this.fetchStudent,
       deleteStudent: this.deleteStudent,
-        filterStudents : this.filterStudents,
+      filterStudents : this.filterStudents,
     };
 
     return(
