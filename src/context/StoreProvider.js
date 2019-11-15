@@ -104,6 +104,7 @@ class StoreProvider extends Component {
 
     this.setState({
       allStudents: refreshData,
+      filteredStudents: refreshData,
       isModalOpen: false,
     });
 
