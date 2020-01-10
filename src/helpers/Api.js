@@ -1,20 +1,18 @@
 const getAllStudents = async() => {
-    const res = await fetch('/students');
-    const json = await res.json();
-    const {rows} = json;
-
+    const res = await fetch('/students').then(res => res.json());
+    const {rows} = res;
+    
     return rows
 };
 
 const getStudent = async(id) => {
-  const res = await fetch(`/students/${id}`);
-  const json = await res.json();
+  const res = await fetch(`/students/${id}`).then(res => res.json());
 
-  return json[0]
+  return res[0]
 };
 
-const createStudent = (info) => {
-  return fetch('/createStudent', {
+const createStudent = async(info) => {
+  return await fetch('/createStudent', {
     method: 'POST',
     headers : {
       'Content-Type': 'application/json'
@@ -23,8 +21,8 @@ const createStudent = (info) => {
   })
 };
 
-const deleteStudent = (id) => {
-  return fetch(`/deleteStudent/${id}`, {
+const deleteStudent = async(id) => {
+  return await fetch(`/deleteStudent/${id}`, {
     method: 'DELETE',
     header: {
       'Content-Type': 'application/json'
@@ -33,8 +31,8 @@ const deleteStudent = (id) => {
 };
 
 
-const editStudent = (id, info) => {
-  return fetch(`/updateStudent/${id}`, {
+const editStudent = async(id, info) => {
+  return await fetch(`/updateStudent/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json"
