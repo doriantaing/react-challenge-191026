@@ -43,10 +43,21 @@ const editStudent = (id, info) => {
   })
 };
 
+const createTeacher = (info) => {
+  return fetch('/signup', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify( info )
+  })
+};
+
 export default {
   getAllStudents,
   createStudent,
   getStudent,
   deleteStudent,
-  editStudent
+  editStudent,
+  createTeacher
 };
