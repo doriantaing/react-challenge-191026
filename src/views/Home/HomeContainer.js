@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import StoreContext from './StoreContext';
-import Api from "../helpers/Api";
+import React, { Component, Fragment } from 'react';
+import Home from "./Home";
+import Header from "../../components/Header";
+import Api from "../../helpers/Api";
 
-class StoreProvider extends Component {
+class HomeContainer extends Component {
   state = {
     currentFilter : 'all',
     allStudents: [],
@@ -45,18 +46,18 @@ class StoreProvider extends Component {
   };
 
   filterStudents = (category) => {
-      if (category === 'all'){
-          this.setState(prevState => {
+    if (category === 'all'){
+      this.setState(prevState => {
 
-              return { currentFilter: category, filteredStudents: prevState.allStudents}
-          });
-          return;
-      }
+        return { currentFilter: category, filteredStudents: prevState.allStudents}
+      });
+      return;
+    }
     const students = this.state.allStudents.filter(student =>
       student[category] === 'A' || student[category] === 'B');
     this.setState(prevState => {
-          return { currentFilter: category, filteredStudents : students}
-      })
+      return { currentFilter: category, filteredStudents : students}
+    })
   };
 
   sendForm = async(e, editMode) => {
@@ -148,6 +149,7 @@ class StoreProvider extends Component {
     })
   };
 
+
   render(){
     const contextValue = {
       data: this.state,
@@ -159,12 +161,13 @@ class StoreProvider extends Component {
       filterStudents : this.filterStudents,
     };
 
-    return(
-      <StoreContext.Provider value={contextValue}>
-        {this.props.children}
-      </StoreContext.Provider>
+    return (
+      <Fragment>
+        <Header/>
+        <Home context={contextValue}/>
+      </Fragment>
     )
   }
 }
 
-export default StoreProvider;
+export default HomeContainer;

@@ -1,8 +1,7 @@
 .header {
-  background: $white;
+  background: $green;
   padding: 1rem 0;
   font-family: $font-roboto-bold;
-  box-shadow: 0 1px 0 rgba($black, 0.1);
   &-container {
     display: flex;
     justify-content: center;
@@ -15,12 +14,13 @@
     line-height: 21px;
     margin-left: .5rem;
     text-transform: uppercase;
+    color: $white;
   }
   &-icon {
     &_bar {
       width: 32px;
       height: 4px;
-      background: $green;
+      background: $white;
       display: block;
       &:not(:last-child){
         margin-bottom: 4px;

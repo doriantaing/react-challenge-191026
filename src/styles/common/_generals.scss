@@ -44,3 +44,12 @@ body {
     cursor: pointer;
   }
 }
+
+.input-text {
+  border: 1px solid $black;
+  background: $white;
+  font-size: 14px;
+  padding: 1rem;
+  color: rgba($black, 0.4);
+  border-radius: 5px;
+}
